@@ -4,14 +4,15 @@ typedef struct
 {
     int x;
     int y;
-    int distance;
+    int distance; // steps covered
 } Node;
 
 int row[] = {-2, -1, 1, 2, -2, -1, 1, 2};
 int col[] = {-1, -2, -2, -1, 1, 2, 2, 1};
 
 int visit[N + 1][N + 1] = {{0}};
-Node q[1000];
+
+Node q[1000]; // array of structure is used to simulate the Queue
 
 int front = -1;
 int rear = -1;
@@ -24,7 +25,7 @@ int mapCoordsToIndex(int x, int y)
 
 int isValid(int x, int y)
 {
-    if (x >= 1 && x <= N && y >= 1 && y <= N)
+    if ((x >= 1 && x <= N) && (y >= 1 && y <= N))
         return 1;
     return 0;
 }
@@ -133,11 +134,11 @@ int main()
 {
     int dx, dy;
     int sx, sy;
-    printf("Enter the Source Coordinates (x,y), where x & y are numbers between 1 & 8: \n");
+    printf("\nEnter  the   source   Coordinates (x,y), where x & y are numbers between 1 & 8: ");
     scanf("%d%d", &sx, &sy);
-    printf("Enter the destination Coordinates (x,y), where x & y are numbers between 1 & 8: \n");
+    printf("\nEnter the destination Coordinates (x,y), where x & y are numbers between 1 & 8: ");
     scanf("%d%d", &dx, &dy);
-
+    printf("\n");
     if (isValid(sx, sy) && isValid(dx, dy))
         bfs(sx, sy, dx, dy);
     else
