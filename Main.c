@@ -23,7 +23,7 @@ int mapCoordsToIndex(int x, int y)
     return 8 * y + x;
 }
 
-int isValid(int x, int y)
+int isValid(int x, int y) // check whether we are inside the board
 {
     if ((x >= 1 && x <= N) && (y >= 1 && y <= N))
         return 1;
@@ -47,21 +47,21 @@ void dequeue()
     else
         front++;
 }
-
-int qisempty()
+ 
+int qisempty() // Check Q is empty
 {
     if (rear == -1 && front == -1)
         return 1;
     return 0;
 }
 
-void push(int index, int *stack)
+void push(int index, int *stack) 
 {
     top++;
     stack[top] = index;
 }
 
-void pop()
+void pop() 
 {
     top--;
 }
@@ -71,7 +71,7 @@ int getX(int index)
     return (index % 8) + 1;
 }
 
-int getY(int index)
+int getY(int index) 
 {
     return (index / 8) + 1;
 }
